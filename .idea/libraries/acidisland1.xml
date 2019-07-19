@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="acidisland1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Server_1_14/plugins/acidisland.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

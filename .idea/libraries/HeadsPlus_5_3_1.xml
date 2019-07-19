@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="HeadsPlus-5.3.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../Server1.12/plugins/HeadsPlus-5.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Server_1_14/plugins/HeadsPlus-v6.3.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

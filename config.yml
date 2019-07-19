@@ -1,0 +1,93 @@
+og-enabled: true
+disabled-worlds:
+- bskyblock_world_nether
+- bskyblock_world_the_end
+- bskyblock_world
+update-checker: true
+update-notifier: true
+tiers:
+  common:
+    blocks:
+    - COAL_ORE
+    - IRON_ORE
+    chance: 30
+    position: 1
+  medium:
+    blocks:
+    - REDSTONE_ORE
+    - LAPIS_ORE
+    chance: 20
+    position: 2
+  rare:
+    blocks:
+    - GOLD_ORE
+    chance: 10
+    position: 3
+  srare:
+    blocks:
+    - DIAMOND_ORE
+    - EMERALD_ORE
+    chance: 5
+    position: 4
+custom:
+  bskyblock_world_nether:
+    common:
+      blocks:
+      - NETHERRACK
+      - NETHER_QUARTZ_ORE
+      - GLOWSTONE_BLOCK
+      chance: 35
+      position: 1
+    medium:
+      blocks:
+      - GOLD_ORE
+      chance: 15
+      position: 2
+  bskyblock_world:
+    common:
+      blocks:
+      - COAL_ORE
+      - IRON_ORE
+      chance: 30
+      position: 1
+    medium:
+      blocks:
+      - REDSTONE_ORE
+      - LAPIS_ORE
+      chance: 20
+      position: 2
+    rare:
+      blocks:
+      - GOLD_ORE
+      chance: 10
+      position: 3
+    srare:
+      blocks:
+      - DIAMOND_ORE
+      - EMERALD_ORE
+      chance: 5
+      position: 4
+  bskyblock_world_the_end:
+    common:
+      blocks:
+      - COAL_ORE
+      - IRON_ORE
+      chance: 30
+      position: 1
+    medium:
+      blocks:
+      - REDSTONE_ORE
+      - LAPIS_ORE
+      chance: 20
+      position: 2
+    rare:
+      blocks:
+      - GOLD_ORE
+      chance: 10
+      position: 3
+    srare:
+      blocks:
+      - DIAMOND_ORE
+      - EMERALD_ORE
+      chance: 5
+      position: 4

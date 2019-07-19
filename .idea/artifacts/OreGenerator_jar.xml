@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="OreGenerator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OreGenerator_jar</output-path>
+    <root id="root">
+      <element id="archive" name="AdvancedOreGenerator.jar">
+        <element id="module-output" name="OreGenerator" />
+      </element>
+    </root>
+  </artifact>
+</component>
