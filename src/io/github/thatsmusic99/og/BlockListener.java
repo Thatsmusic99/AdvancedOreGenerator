@@ -12,7 +12,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockEvent;
 import org.bukkit.event.block.BlockFormEvent;
 import org.bukkit.event.block.BlockFromToEvent;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -61,13 +60,17 @@ public class BlockListener implements Listener {
     }
 
     private void e(Location a, Block b, BlockEvent e) {
-        if (!hl.containsKey(a)) return;
-        if (!hl.get(a).hasPermission("aog.use-generator")) {
+        Player p = null;
+        if (OreGenerator.getInstance().getConfig().getBoolean("requires-permission")) {
+            if (!hl.containsKey(a)) return;
+            if (!hl.get(a).hasPermission("aog.use-generator")) {
+                hl.remove(a);
+                return;
+            }
+            p = hl.get(a);
             hl.remove(a);
-            return;
         }
-        Player p = hl.get(a);
-        hl.remove(a);
+
         Material m = null;
         Location l = null;
         FileConfiguration config = OreGenerator.getInstance().getConfig();
@@ -79,8 +82,8 @@ public class BlockListener implements Listener {
                 for (String key : config.getConfigurationSection("custom." + worldName).getKeys(false)) {
                     if (config.getInt("custom." + worldName + "." + key + ".position") == i) {
 
-                        if (result <= config.getInt("custom." + worldName + "." + key + ".chance")) {
-                            if (p.hasPermission("aog.tiers.use.custom." + worldName + "." + key)) {
+                        if (result <= config.getDouble("custom." + worldName + "." + key + ".chance")) {
+                            if (p == null || p.hasPermission("aog.tiers.use.custom." + worldName + "." + key)) {
                                 int block = rand.nextInt(config.getStringList("custom." + worldName + "." + key + ".blocks").size());
                                 l = b.getLocation();
                                 m = Material.valueOf(config.getStringList("custom." + worldName + "." + key + ".blocks").get(block));
@@ -94,8 +97,8 @@ public class BlockListener implements Listener {
                 for (String key : config.getConfigurationSection("tiers").getKeys(false)) {
                     if (config.getInt("tiers." + key + ".position") == i) {
 
-                        if (result <= config.getInt("tiers." + key + ".chance")) {
-                            if (p.hasPermission("aog.tiers.use." + key)) {
+                        if (result <= config.getDouble("tiers." + key + ".chance")) {
+                            if (p == null || p.hasPermission("aog.tiers.use." + key)) {
                                 int block = rand.nextInt(config.getStringList("tiers." + key + ".blocks").size());
                                 l = b.getLocation();
                                 m = Material.valueOf(config.getStringList("tiers." + key + ".blocks").get(block));

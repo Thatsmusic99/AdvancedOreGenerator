@@ -2,6 +2,7 @@
   <library name="HeadsPlus-v6.5.3-SNAPSHOT-1">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../ServerActually1_12/plugins/HeadsPlus-v6.5.3-SNAPSHOT-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Server_1_14/plugins/HeadsPlus-v6.5.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

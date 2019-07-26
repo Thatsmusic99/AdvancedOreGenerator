@@ -140,6 +140,7 @@ public class OreGenerator extends JavaPlugin {
                 getConfig().addDefault("tiers.srare.position", 4);
             }
             getConfig().addDefault("og-enabled", true);
+            getConfig().addDefault("requires-permission", true);
             getConfig().addDefault("disabled-worlds", worlds);
             getConfig().addDefault("update-checker", true);
             getConfig().addDefault("update-notifier", true);

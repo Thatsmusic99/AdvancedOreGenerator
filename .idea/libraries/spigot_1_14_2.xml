@@ -2,10 +2,12 @@
   <library name="spigot-1.14.2">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/../../Server_1_14/spigot-1.14.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Server_1_14/spigot-1.14.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$PROJECT_DIR$/../../Server_1_14/spigot-1.14.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Server_1_14/spigot-1.14.4.jar!/" />
     </SOURCES>
   </library>
 </component>
