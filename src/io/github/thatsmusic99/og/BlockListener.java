@@ -32,7 +32,7 @@ public class BlockListener implements Listener {
     public void onBlockEvent(BlockFormEvent e) {
         try {
             if (OreGenerator.getInstance().getServer().getVersion().contains("1.8")) return;
-            if (e.getBlock().getType() == Material.LAVA) {
+            if (isLava(e.getBlock().getType())) {
                 if (OreGenerator.getInstance().getConfig().getBoolean("og-enabled")) {
                     if (OreGenerator.getInstance().getConfig().getStringList("disabled-worlds").contains(e.getBlock().getWorld().getName())) return;
                     e(e.getBlock().getLocation(), e.getBlock(), e);
@@ -48,7 +48,7 @@ public class BlockListener implements Listener {
     public void onBlockBreak(BlockFromToEvent e) {
         try {
             if (!OreGenerator.getInstance().getServer().getVersion().contains("1.8")) return;
-            if (e.getBlock().getType() == Material.LAVA) {
+            if (isLava(e.getBlock().getType())) {
                 if (OreGenerator.getInstance().getConfig().getBoolean("og-enabled")) {
                     if (OreGenerator.getInstance().getConfig().getStringList("disabled-worlds").contains(e.getBlock().getWorld().getName())) return;
                     e(e.getBlock().getLocation(), e.getToBlock(), e);
@@ -118,7 +118,7 @@ public class BlockListener implements Listener {
 
     private boolean isLava(Material m) {
         try {
-            return m == Material.valueOf("STATIONARY_LAVA");
+            return m == Material.valueOf("STATIONARY_LAVA") || m == Material.LAVA;
         } catch (Exception e) {
             return m == Material.LAVA;
         }
