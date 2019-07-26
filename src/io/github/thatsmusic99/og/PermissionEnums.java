@@ -11,7 +11,8 @@ public enum PermissionEnums {
     WORLD("world <World name>", "Views world information.", "aog.view.world"),
     RELOAD("reload", "Reloads the configuration.", "aog.reload"),
     HELP("help [Page #]", "Displays the help menu.", "aog.view.help"),
-    INFO("info", "Displays plugin information.", "aog.info");
+    INFO("info", "Displays plugin information.", "aog.info"),
+    TESTS("tests <World name> <Amount>", "Runs generator tests.", "aog.tests");
 
     public String cmd;
     public String desc;

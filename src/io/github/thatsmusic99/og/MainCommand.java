@@ -132,6 +132,21 @@ public class MainCommand implements CommandExecutor {
                                 InfoCommand.info(cs);
                                 return true;
                             }
+                        case "tests":
+                            if (cs.hasPermission("aog.tests")) {
+                                if (args.length > 2) {
+                                    if (args[2].matches("^[0-9]+$")) {
+                                        RunTests.runTests(Integer.parseInt(args[2]), cs, args[1]);
+                                        return true;
+                                    } else {
+                                        cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Invalid arguments! Do /aog worlds [Page #]");
+                                        return true;
+                                    }
+                                } else {
+                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog disable <World name>");
+                                    return true;
+                                }
+                            }
                         default:
                             if (args[0].matches("^[0-9]+$")) {
                                 if (cs.hasPermission("aog.view.help")) {
