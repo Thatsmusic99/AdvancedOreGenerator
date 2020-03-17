@@ -20,12 +20,12 @@ public class HelpMenu {
         PagedLists pl = new PagedLists(perms, 5);
         StringBuilder sb = new StringBuilder();
 
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
-        sb.append(ChatColor.AQUA).append("Help menu: ").append(ChatColor.GREEN).append("Page ").append(ChatColor.AQUA).append("1").append(ChatColor.GREEN).append("/").append(ChatColor.AQUA).append(pl.getTotalPages()).append("\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append(ChatColor.GRAY).append("Help Menu").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append("Page ").append(ChatColor.GREEN).append("1").append(ChatColor.DARK_GRAY).append("/").append(ChatColor.GREEN).append(pl.getTotalPages()).append("\n");
 
         for (Object key2 : pl.getContentsInPage(1)) {
             PermissionEnums key = (PermissionEnums) key2;
-            sb.append(ChatColor.GREEN).append("/aog ").append(key.cmd).append(" - ").append(ChatColor.AQUA).append(key.desc).append("\n");
+            sb.append(ChatColor.GREEN).append("/aog ").append(key.cmd).append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append(key.desc).append("\n");
         }
 
         return sb.toString();
@@ -41,12 +41,12 @@ public class HelpMenu {
         PagedLists pl = new PagedLists(perms, 5);
         StringBuilder sb = new StringBuilder();
 
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
-        sb.append(ChatColor.AQUA).append("Help menu: ").append(ChatColor.GREEN).append("Page ").append(ChatColor.AQUA).append(page).append(ChatColor.GREEN).append("/").append(ChatColor.AQUA).append(pl.getTotalPages()).append("\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append(ChatColor.GRAY).append("Help Menu").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append("Page ").append(ChatColor.GREEN).append(page).append(ChatColor.DARK_GRAY).append("/").append(ChatColor.GREEN).append(pl.getTotalPages()).append("\n");
 
         for (Object key2 : pl.getContentsInPage(page)) {
             PermissionEnums key = (PermissionEnums) key2;
-            sb.append(ChatColor.GREEN).append("/aog ").append(key.cmd).append(" - ").append(ChatColor.AQUA).append(key.desc).append("\n");
+            sb.append(ChatColor.GREEN).append("/aog ").append(key.cmd).append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append(key.desc).append("\n");
         }
 
         return sb.toString();

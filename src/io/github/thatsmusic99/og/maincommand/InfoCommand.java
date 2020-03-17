@@ -8,9 +8,10 @@ public class InfoCommand {
 
     public static void info(CommandSender cs) {
         StringBuilder sb = new StringBuilder();
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------");
-        sb.append("\n").append(ChatColor.GREEN).append("Name: ").append(ChatColor.AQUA).append(OreGenerator.getInstance().getDescription().getName());
-        sb.append("\n").append(ChatColor.GREEN).append("Author: ").append(ChatColor.AQUA).append(OreGenerator.getInstance().getDescription().getAuthors().get(0));
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append("\n").append(ChatColor.GRAY).append("Name").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GREEN).append(OreGenerator.getInstance().getDescription().getName());
+        sb.append("\n").append(ChatColor.GRAY).append("Author").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GREEN).append("Thatsmusic99");
+        sb.append("\n").append(ChatColor.GRAY).append("Version").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GREEN).append(OreGenerator.getInstance().getDescription().getVersion());
         cs.sendMessage(sb.toString());
     }
 }

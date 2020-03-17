@@ -14,11 +14,11 @@ public class AllowedWorlds {
 
         StringBuilder sb = new StringBuilder();
         PagedLists list = new PagedLists(setup(), 8);
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
-        sb.append(ChatColor.AQUA).append("Enabled worlds: ").append(ChatColor.GREEN).append("Page ").append(ChatColor.AQUA).append("1").append(ChatColor.GREEN).append("/").append(ChatColor.AQUA).append(list.getTotalPages()).append("\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append(ChatColor.GRAY).append("Enabled worlds").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append("Page ").append(ChatColor.GREEN).append("1").append(ChatColor.DARK_GRAY).append("/").append(ChatColor.GREEN).append(list.getTotalPages()).append("\n");
 
         for (Object str : list.getContentsInPage(1)) {
-            sb.append(ChatColor.GREEN).append(((AOGWorld)str).getWorldName()).append("\n");
+            sb.append(ChatColor.GRAY).append(((AOGWorld)str).getWorldName()).append("\n");
         }
         return sb.toString();
     }
@@ -27,8 +27,8 @@ public class AllowedWorlds {
 
         StringBuilder sb = new StringBuilder();
         PagedLists list = new PagedLists(setup(), 8);
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
-        sb.append(ChatColor.AQUA).append("Enabled worlds: ").append(ChatColor.GREEN).append("Page ").append(ChatColor.AQUA).append(page).append(ChatColor.GREEN).append("/").append(ChatColor.AQUA).append(list.getTotalPages()).append("\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append(ChatColor.GRAY).append("Enabled worlds").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append("Page ").append(ChatColor.GREEN).append(page).append(ChatColor.DARK_GRAY).append("/").append(ChatColor.GREEN).append(list.getTotalPages()).append("\n");
 
         for (Object str : list.getContentsInPage(page)) {
             sb.append(ChatColor.GREEN).append(((AOGWorld)str).getWorldName()).append("\n");

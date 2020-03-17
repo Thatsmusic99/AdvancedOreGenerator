@@ -17,7 +17,7 @@ public class AddCustom {
         FileConfiguration fc = OreGenerator.getInstance().getConfig();
         if (fc.getConfigurationSection("custom." + worldname) == null) {
             if (fc.getStringList("disabled-worlds").contains(worldname)) {
-                cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Note: World " + worldname + " has the ore generator disabled!");
+                cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Note: World " + worldname + " has the ore generator disabled!");
             }
             AOGWorld w = AOGWorld.getWorld(worldname);
             if (w == null) w = new AOGWorld(worldname, new AOGSettings(worldname));
@@ -36,10 +36,10 @@ public class AddCustom {
             fc.options().copyDefaults(true);
             OreGenerator.getInstance().saveConfig();
             w.getAogSettings().setCustom(true);
-            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.GREEN + "World " + worldname + " now has custom configuration!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " now has custom configuration!");
 
         } else {
-            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "World " + worldname + " already has custom configuration!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " already has custom configuration!");
         }
     }
 }

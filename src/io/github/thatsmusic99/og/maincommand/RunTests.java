@@ -58,7 +58,7 @@ public class RunTests {
                     i++;
                     occurances.put(m, i);
                 }
-                cs.sendMessage(ChatColor.GREEN + "----------- " + ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "]" + ChatColor.GREEN + " -----------");
+                cs.sendMessage(ChatColor.GRAY + "━━━━━━━━━━━━ " + ChatColor.DARK_GRAY + "❰ " + ChatColor.GREEN + "" + ChatColor.BOLD + "AdvancedOreGenerator" + ChatColor.DARK_GRAY + " ❱" + ChatColor.GRAY + " ━━━━━━━━━━━━");
                 for (Material m : occurances.keySet()) {
                     DecimalFormat format = new DecimalFormat("#.##");
                     cs.sendMessage(m.name() + " - " + occurances.get(m) + " (" + format.format((Double.valueOf(occurances.get(m)) / amount) * 100) + "%)");

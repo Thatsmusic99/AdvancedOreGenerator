@@ -2,6 +2,7 @@ package io.github.thatsmusic99.og;
 
 import com.onarandombox.MultiverseCore.MultiverseCore;
 import com.wasteofplastic.askyblock.ASkyBlockAPI;
+import io.github.thatsmusic99.og.hooks.*;
 import io.github.thatsmusic99.og.util.AOGSettings;
 import io.github.thatsmusic99.og.util.AOGWorld;
 import org.bukkit.Bukkit;
@@ -26,11 +27,11 @@ public class OreGenerator extends JavaPlugin {
     private static OreGenerator instance;
     public List<String> worlds = new ArrayList<>();
     static Object[] update = null;
-
+    private final static List<Hook> availableHooks = new ArrayList<>(Arrays.asList(new ASkyBlock(), new FabledSkyBlock(), new uSkyBlock(), new SuperiorSkyBlock()));
+    public BlockListener blocks;
 
     @Override
     public void onEnable() {
-        getServer().getPluginManager().registerEvents(new BlockListener(), this);
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
         if (getServer().getPluginManager().getPlugin("HeadsPlus") != null) {
             getServer().getPluginManager().registerEvents(new CommunicationManager(), this);
@@ -38,6 +39,7 @@ public class OreGenerator extends JavaPlugin {
         getCommand("aog").setExecutor(new MainCommand());
         instance = this;
         setupConfig(instance);
+        getServer().getPluginManager().registerEvents(blocks = new BlockListener(), this);
         if (getConfig().getBoolean("update-checker")) {
             new BukkitRunnable() {
                 @Override
@@ -190,5 +192,9 @@ public class OreGenerator extends JavaPlugin {
             a.add(t);
         }
         return a;
+    }
+
+    public BlockListener getBlocks() {
+        return blocks;
     }
 }

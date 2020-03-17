@@ -28,11 +28,11 @@ public class MainCommand implements CommandExecutor {
                                             cs.sendMessage(AllowedWorlds.allowedWorlds(Integer.parseInt(args[1])));
                                             return true;
                                         } catch (IllegalArgumentException ex) {
-                                            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Invalid page number!");
+                                            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid page number!");
                                             return true;
                                         }
                                     } else {
-                                        cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Invalid arguments! Do /aog worlds [Page #]");
+                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog worlds [Page #]");
                                         return true;
                                     }
                                 } else {
@@ -48,11 +48,11 @@ public class MainCommand implements CommandExecutor {
                                             cs.sendMessage(DisabledWorlds.dWorlds(Integer.parseInt(args[1])));
                                             return true;
                                         } catch (IllegalArgumentException ex) {
-                                            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Invalid page number!");
+                                            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid page number!");
                                             return true;
                                         }
                                     } else {
-                                        cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Invalid arguments! Do /aog worlds [Page #]");
+                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog worlds [Page #]");
                                         return true;
                                     }
                                 } else {
@@ -83,7 +83,7 @@ public class MainCommand implements CommandExecutor {
                                     AddCustom.addCustom(args[1], cs);
                                     return true;
                                 } else {
-                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog addcustom <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog addcustom <World name>");
                                     return true;
                                 }
                             }
@@ -93,7 +93,7 @@ public class MainCommand implements CommandExecutor {
                                     cs.sendMessage(WorldInfo.getWorldInfo(args[1]));
                                     return true;
                                 } else {
-                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog world <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog world <World name>");
                                     return true;
                                 }
                             }
@@ -103,7 +103,7 @@ public class MainCommand implements CommandExecutor {
                                     DelCustom.delCustom(args[1], cs);
                                     return true;
                                 } else {
-                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog delcustom <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog delcustom <World name>");
                                     return true;
                                 }
                             }
@@ -113,7 +113,7 @@ public class MainCommand implements CommandExecutor {
                                     AddWorld.disable(args[1], cs);
                                     return true;
                                 } else {
-                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog disable <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog disable <World name>");
                                     return true;
                                 }
                             }
@@ -123,7 +123,7 @@ public class MainCommand implements CommandExecutor {
                                     DelWorld.enable(args[1], cs);
                                     return true;
                                 } else {
-                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog disable <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog disable <World name>");
                                     return true;
                                 }
                             }
@@ -139,11 +139,11 @@ public class MainCommand implements CommandExecutor {
                                         RunTests.runTests(Integer.parseInt(args[2]), cs, args[1]);
                                         return true;
                                     } else {
-                                        cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Invalid arguments! Do /aog worlds [Page #]");
+                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog worlds [Page #]");
                                         return true;
                                     }
                                 } else {
-                                    cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Not enough arguments! Do /aog disable <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog disable <World name>");
                                     return true;
                                 }
                             }

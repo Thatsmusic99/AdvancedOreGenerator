@@ -20,9 +20,9 @@ public class DelWorld {
             OreGenerator.getInstance().getConfig().set("disabled-worlds", b);
             OreGenerator.getInstance().getConfig().options().copyDefaults(true);
             OreGenerator.getInstance().saveConfig();
-            cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.GREEN + "World " + worldname + " now has the ore generator enabled!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " now has the ore generator enabled!");
         } else {
-            cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "World " + worldname + " is already enabled!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " is already enabled!");
         }
     }
 }

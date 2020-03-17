@@ -1,5 +1,6 @@
 package io.github.thatsmusic99.og.maincommand;
 
+import io.github.thatsmusic99.og.BlockListener;
 import io.github.thatsmusic99.og.OreGenerator;
 import io.github.thatsmusic99.og.Tier;
 import io.github.thatsmusic99.og.util.AOGWorld;
@@ -24,9 +25,10 @@ public class Reload {
             }
             OreGenerator.getInstance().reloadConfig();
             checkCustoms();
-            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.GREEN + "Config has been reloaded!");
+            OreGenerator.getInstance().getBlocks().refreshValues();
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Config has been reloaded!");
         } catch (Exception ex) {
-            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Failed to reload config!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Failed to reload config!");
             ex.printStackTrace();
         }
 

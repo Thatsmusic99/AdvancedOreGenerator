@@ -13,10 +13,10 @@ public class JoinListener implements Listener {
         if (e.getPlayer().hasPermission("aog.notify")) {
             if (OreGenerator.getInstance().getConfig().getBoolean("update-notify")) {
                 if (OreGenerator.update != null) {
-                    new FancyMessage().text(ChatColor.translateAlternateColorCodes('&', "&b[&aAdvancedOreGenerator&b] &aAn update for AdvancedOreGenerator has been found!"))
-                            .tooltip(ChatColor.translateAlternateColorCodes('&', "&aCurrent version: &b" + OreGenerator.getInstance().getDescription().getVersion())
-                                    + "\n" + ChatColor.translateAlternateColorCodes('&', "&aNew version: &b"+ OreGenerator.update[2])
-                                    + "\n" + ChatColor.translateAlternateColorCodes('&', "&aDescription: &b" + OreGenerator.update[1])).link("https://www.spigotmc.org/resources/advancedoregenerator.51153/").send(e.getPlayer());
+                    new FancyMessage().text(ChatColor.translateAlternateColorCodes('&', "&aAdvancedOreGenerator&  &7An update for AdvancedOreGenerator has been found!"))
+                            .tooltip(ChatColor.translateAlternateColorCodes('&', "&7Current version » &a" + OreGenerator.getInstance().getDescription().getVersion())
+                                    + "\n" + ChatColor.translateAlternateColorCodes('&', "&7New version » &a"+ OreGenerator.update[2])
+                                    + "\n" + ChatColor.translateAlternateColorCodes('&', "&7Description » &a" + OreGenerator.update[1])).link("https://www.spigotmc.org/resources/advancedoregenerator.51153/").send(e.getPlayer());
                 }
             }
         }

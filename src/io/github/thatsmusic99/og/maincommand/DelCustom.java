@@ -11,7 +11,7 @@ public class DelCustom {
     public static void delCustom(String worldname, CommandSender cs) {
         if (OreGenerator.getInstance().getConfig().getConfigurationSection("custom." + worldname) != null) {
             if (OreGenerator.getInstance().getConfig().getStringList("disabled-worlds").contains(worldname)) {
-                cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "Note: World " + worldname + " has the ore generator disabled!");
+                cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Note: World " + worldname + " has the ore generator disabled!");
             }
             AOGWorld world = AOGWorld.getWorld(worldname);
             if (world == null) world = new AOGWorld(worldname, new AOGSettings(worldname));
@@ -19,10 +19,10 @@ public class DelCustom {
             OreGenerator.getInstance().getConfig().options().copyDefaults(true);
             OreGenerator.getInstance().saveConfig();
             world.getAogSettings().setCustom(false);
-            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.YELLOW + "World " + worldname + " is no longer custom!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " is no longer custom!");
 
         } else {
-            cs.sendMessage(ChatColor.AQUA + "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "World " + worldname + " doesn't have custom configuration!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " doesn't have custom configuration!");
         }
     }
 }

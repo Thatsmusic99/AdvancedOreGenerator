@@ -10,15 +10,15 @@ public class WorldInfo {
 
     public static String getWorldInfo(String worldname) {
         StringBuilder sb = new StringBuilder();
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
         if (AOGWorld.getWorld(worldname) != null) {
             AOGWorld w = AOGWorld.getWorld(worldname);
             assert w != null;
-            sb.append(ChatColor.GREEN).append("World: ").append(ChatColor.AQUA).append(worldname).append("\n");
-            sb.append(ChatColor.GREEN).append("Enabled: ").append(ChatColor.AQUA).append(String.valueOf(w.getAogSettings().isEnabled())).append("\n");
-            sb.append(ChatColor.GREEN).append("Custom: ").append(ChatColor.AQUA).append(String.valueOf(w.getAogSettings().isCustom())).append("\n");
+            sb.append(ChatColor.GRAY).append("World").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GREEN).append(worldname).append("\n");
+            sb.append(ChatColor.GRAY).append("Enabled ").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GREEN).append(w.getAogSettings().isEnabled()).append("\n");
+            sb.append(ChatColor.GRAY).append("Custom ").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GREEN).append(w.getAogSettings().isCustom()).append("\n");
             for (Tier t : w.getAogSettings().getTiers()) {
-                sb.append(ChatColor.GREEN).append(WordUtils.capitalize(t.getName())).append(" chance | blocks: ").append(ChatColor.AQUA).append(t.getChance()).append(" | ");
+                sb.append(ChatColor.GRAY).append(WordUtils.capitalize(t.getName())).append(" chance | blocks: ").append(ChatColor.GREEN).append(t.getChance()).append(" | ");
                 for (Material m : t.getBlocks()) {
                     sb.append(m.name()).append(", ");
                 }
@@ -27,6 +27,6 @@ public class WorldInfo {
             }
             return sb.toString();
         }
-        return "[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "No world data was found!";
+        return ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "No world data was found!";
     }
 }

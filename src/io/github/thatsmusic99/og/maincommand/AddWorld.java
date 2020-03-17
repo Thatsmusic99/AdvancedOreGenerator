@@ -20,12 +20,12 @@ public class AddWorld {
                 OreGenerator.getInstance().getConfig().set("disabled-worlds", b);
                 OreGenerator.getInstance().getConfig().options().copyDefaults(true);
                 OreGenerator.getInstance().saveConfig();
-                cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.GREEN + "World " + worldname + " now has the ore generator disabled!");
+                cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " now has the ore generator disabled!");
             } else {
-                cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "World " + worldname + " is already disabled!");
+                cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " is already disabled!");
             }
         } else {
-            cs.sendMessage("[" + ChatColor.GREEN + "AdvancedOreGenerator" + ChatColor.AQUA + "] " + ChatColor.RED + "World " + worldname + " wasn't found!");
+            cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "World " + worldname + " wasn't found!");
         }
     }
 }
