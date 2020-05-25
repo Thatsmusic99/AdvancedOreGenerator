@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="acidisland">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Server1.12/plugins/acidisland.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/acidisland.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

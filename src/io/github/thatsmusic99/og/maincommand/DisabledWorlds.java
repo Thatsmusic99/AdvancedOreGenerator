@@ -13,11 +13,11 @@ public class DisabledWorlds {
         List<String> dworlds = OreGenerator.getInstance().getConfig().getStringList("disabled-worlds");
         StringBuilder sb = new StringBuilder();
         PagedLists list = new PagedLists(dworlds, 8);
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
-        sb.append(ChatColor.AQUA).append("Disabled worlds: ").append(ChatColor.GREEN).append("Page ").append(ChatColor.AQUA).append("1").append(ChatColor.GREEN).append("/").append(ChatColor.AQUA).append(list.getTotalPages()).append("\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append(ChatColor.GRAY).append("Disabled worlds").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append("Page ").append(ChatColor.GREEN).append("1").append(ChatColor.DARK_GRAY).append("/").append(ChatColor.GREEN).append(list.getTotalPages()).append("\n");
 
         for (Object str : list.getContentsInPage(1)) {
-            sb.append(ChatColor.GREEN).append("").append(str).append("\n");
+            sb.append(ChatColor.GREEN).append(str).append("\n");
         }
         return sb.toString();
 
@@ -27,10 +27,10 @@ public class DisabledWorlds {
         List<String> dworlds = OreGenerator.getInstance().getConfig().getStringList("disabled-worlds");
         StringBuilder sb = new StringBuilder();
         PagedLists list = new PagedLists(dworlds, 8);
-        sb.append(ChatColor.GREEN).append("----------- ").append(ChatColor.AQUA).append("[").append(ChatColor.GREEN).append("AdvancedOreGenerator").append(ChatColor.AQUA).append("]").append(ChatColor.GREEN).append(" -----------\n");
-        sb.append(ChatColor.AQUA).append("Disabled worlds: ").append(ChatColor.GREEN).append("Page ").append(ChatColor.AQUA).append(page).append(ChatColor.GREEN).append("/").append(ChatColor.AQUA).append(list.getTotalPages()).append("\n");
+        sb.append(ChatColor.GRAY).append("━━━━━━━━━━━━ ").append(ChatColor.DARK_GRAY).append("❰ ").append(ChatColor.GREEN).append(ChatColor.BOLD).append("AdvancedOreGenerator").append(ChatColor.DARK_GRAY).append(" ❱").append(ChatColor.GRAY).append(" ━━━━━━━━━━━━\n");
+        sb.append(ChatColor.GRAY).append("Disabled worlds").append(ChatColor.DARK_GRAY).append(" » ").append(ChatColor.GRAY).append("Page ").append(ChatColor.GREEN).append(page).append(ChatColor.DARK_GRAY).append("/").append(ChatColor.GREEN).append(list.getTotalPages()).append("\n");
         for (Object str : list.getContentsInPage(page)) {
-            sb.append(ChatColor.GREEN).append("").append(str).append("\n");
+            sb.append(ChatColor.GREEN).append(str).append("\n");
         }
         return sb.toString();
     }

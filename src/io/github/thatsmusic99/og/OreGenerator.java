@@ -2,7 +2,6 @@ package io.github.thatsmusic99.og;
 
 import com.onarandombox.MultiverseCore.MultiverseCore;
 import com.wasteofplastic.askyblock.ASkyBlockAPI;
-import io.github.thatsmusic99.og.hooks.*;
 import io.github.thatsmusic99.og.util.AOGSettings;
 import io.github.thatsmusic99.og.util.AOGWorld;
 import org.bukkit.Bukkit;
@@ -12,11 +11,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitRunnable;
 import us.talabrek.ultimateskyblock.api.uSkyBlockAPI;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -27,7 +24,6 @@ public class OreGenerator extends JavaPlugin {
     private static OreGenerator instance;
     public List<String> worlds = new ArrayList<>();
     static Object[] update = null;
-    private final static List<Hook> availableHooks = new ArrayList<>(Arrays.asList(new ASkyBlock(), new FabledSkyBlock(), new uSkyBlock(), new SuperiorSkyBlock()));
     public BlockListener blocks;
 
     @Override
@@ -40,30 +36,6 @@ public class OreGenerator extends JavaPlugin {
         instance = this;
         setupConfig(instance);
         getServer().getPluginManager().registerEvents(blocks = new BlockListener(), this);
-        if (getConfig().getBoolean("update-checker")) {
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    try {
-                        update = UpdateChecker.getUpdate();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if (update != null) {
-                        getLogger().info("An update has been found!");
-                        getLogger().info("Current version: " + getDescription().getVersion());
-                        getLogger().info("New version: " + update[2]);
-                        if (update[1].toString().length() > 50) {
-                            update[1] = update[1].toString().subSequence(0, 50) + "... (Check Spigot for more information)";
-                        }
-                        getLogger().info("Description: " + update[1]);
-                        getLogger().info("Download link: https://www.spigotmc.org/resources/advancedoregenerator.51153/");
-                    } else {
-                        getLogger().info("Plugin is up to date!");
-                    }
-                }
-            }.runTaskAsynchronously(this);
-        }
     }
 
     private void setupConfig(Plugin p) {
@@ -147,10 +119,8 @@ public class OreGenerator extends JavaPlugin {
             getConfig().addDefault("update-checker", true);
             getConfig().addDefault("update-notifier", true);
             getConfig().options().copyDefaults(true);
-            Metrics m = new Metrics(OreGenerator.getInstance());
             saveConfig();
             setupWorlds();
-            m.addCustomChart(new Metrics.SingleLineChart("worlds_managed", () -> AOGWorld.getWorlds().size()));
 
         } catch (Exception ex) {
             ex.printStackTrace();

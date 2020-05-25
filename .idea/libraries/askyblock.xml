@@ -1,10 +1,7 @@
 <component name="libraryTable">
   <library name="askyblock">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/askyblock.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../Server1.12/plugins/askyblock.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../Server_1_14/plugins/askyblock.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../../ServerActually1_12/plugins/askyblock.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/askyblock.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

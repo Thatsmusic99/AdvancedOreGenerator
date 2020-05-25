@@ -1,5 +1,6 @@
 package io.github.thatsmusic99.og;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -14,17 +15,30 @@ import org.bukkit.event.block.BlockFormEvent;
 import org.bukkit.event.block.BlockFromToEvent;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 public class BlockListener implements Listener {
 
-    private static HashMap<Location, Player> hl = new HashMap<>();
+    private static HashMap<String, UUID> hl = new HashMap<>();
+    private List<String> disabledWorlds = OreGenerator.getInstance().getConfig().getStringList("disabled-worlds");
+    private boolean enabled = OreGenerator.getInstance().getConfig().getBoolean("og-enabled");
+
+    private String locToString(Location loc) {
+        return loc.getBlockX() + ":" + loc.getBlockY() + ":" + loc.getBlockZ() + ":" + loc.getWorld().getName();
+    }
+
+    public void refreshValues() {
+        disabledWorlds = OreGenerator.getInstance().getConfig().getStringList("disabled-worlds");
+        enabled = OreGenerator.getInstance().getConfig().getBoolean("og-enabled");
+    }
 
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
-        if (OreGenerator.getInstance().getConfig().getBoolean("og-enabled")) {
-            if (OreGenerator.getInstance().getConfig().getStringList("disabled-worlds").contains(e.getBlock().getWorld().getName())) return;
-            hl.put(e.getBlock().getLocation(), e.getPlayer());
+        if (enabled) {
+            if (disabledWorlds.contains(e.getBlock().getWorld().getName())) return;
+            hl.put(locToString(e.getBlock().getLocation()), e.getPlayer().getUniqueId());
         }
     }
 
@@ -33,8 +47,8 @@ public class BlockListener implements Listener {
         try {
             if (OreGenerator.getInstance().getServer().getVersion().contains("1.8")) return;
             if (isLava(e.getBlock().getType())) {
-                if (OreGenerator.getInstance().getConfig().getBoolean("og-enabled")) {
-                    if (OreGenerator.getInstance().getConfig().getStringList("disabled-worlds").contains(e.getBlock().getWorld().getName())) return;
+                if (enabled) {
+                    if (disabledWorlds.contains(e.getBlock().getWorld().getName())) return;
                     e(e.getBlock().getLocation(), e.getBlock(), e);
                 }
             }
@@ -49,9 +63,9 @@ public class BlockListener implements Listener {
         try {
             if (!OreGenerator.getInstance().getServer().getVersion().contains("1.8")) return;
             if (isLava(e.getBlock().getType())) {
-                if (OreGenerator.getInstance().getConfig().getBoolean("og-enabled")) {
-                    if (OreGenerator.getInstance().getConfig().getStringList("disabled-worlds").contains(e.getBlock().getWorld().getName())) return;
-                    e(e.getBlock().getLocation(), e.getToBlock(), e);
+                if (enabled) {
+                    if (disabledWorlds.contains(e.getBlock().getWorld().getName())) return;
+                    e(e.getToBlock().getLocation(), e.getToBlock(), e);
                 }
             }
         } catch (Exception ex) {
@@ -61,14 +75,15 @@ public class BlockListener implements Listener {
 
     private void e(Location a, Block b, BlockEvent e) {
         Player p = null;
+        String loc = locToString(a);
         if (OreGenerator.getInstance().getConfig().getBoolean("requires-permission")) {
-            if (!hl.containsKey(a)) return;
-            if (!hl.get(a).hasPermission("aog.use-generator")) {
-                hl.remove(a);
+            if (!hl.containsKey(loc)) return;
+            p = Bukkit.getPlayer(hl.get(loc));
+            if (!p.hasPermission("aog.use-generator")) {
+                hl.remove(loc);
                 return;
             }
-            p = hl.get(a);
-            hl.remove(a);
+            hl.remove(loc);
         }
 
         Material m = null;
@@ -96,7 +111,6 @@ public class BlockListener implements Listener {
             for (int i = 0; i <= config.getConfigurationSection("tiers").getKeys(false).size(); i++) {
                 for (String key : config.getConfigurationSection("tiers").getKeys(false)) {
                     if (config.getInt("tiers." + key + ".position") == i) {
-
                         if (result <= config.getDouble("tiers." + key + ".chance")) {
                             if (p == null || p.hasPermission("aog.tiers.use." + key)) {
                                 int block = rand.nextInt(config.getStringList("tiers." + key + ".blocks").size());

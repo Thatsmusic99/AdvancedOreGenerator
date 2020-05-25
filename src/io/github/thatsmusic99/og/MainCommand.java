@@ -13,7 +13,7 @@ public class MainCommand implements CommandExecutor {
             if (cs.hasPermission("aog.command")) {
                 if (args.length == 0) {
                     if (cs.hasPermission("aog.view.help")) {
-                        cs.sendMessage(HelpMenu.helpNoArgs(cs));
+                        cs.sendMessage(HelpMenu.help(cs, 1));
                         return true;
                     }
 
@@ -52,7 +52,7 @@ public class MainCommand implements CommandExecutor {
                                             return true;
                                         }
                                     } else {
-                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog worlds [Page #]");
+                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog dworlds [Page #]");
                                         return true;
                                     }
                                 } else {
@@ -60,6 +60,7 @@ public class MainCommand implements CommandExecutor {
                                     return true;
                                 }
                             }
+
                         case "help":
                             if (cs.hasPermission("aog.view.help")) {
                                 if (args.length > 1) {
@@ -68,7 +69,7 @@ public class MainCommand implements CommandExecutor {
                                         return true;
                                     }
                                 } else {
-                                    cs.sendMessage(HelpMenu.helpNoArgs(cs));
+                                    cs.sendMessage(HelpMenu.help(cs, 1));
                                     return true;
                                 }
                             }
@@ -81,51 +82,46 @@ public class MainCommand implements CommandExecutor {
                             if (cs.hasPermission("aog.add.custom")) {
                                 if (args.length > 1) {
                                     AddCustom.addCustom(args[1], cs);
-                                    return true;
                                 } else {
                                     cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog addcustom <World name>");
-                                    return true;
                                 }
+                                return true;
                             }
                         case "world":
                             if (cs.hasPermission("aog.view.world")) {
                                 if (args.length > 1) {
                                     cs.sendMessage(WorldInfo.getWorldInfo(args[1]));
-                                    return true;
                                 } else {
                                     cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog world <World name>");
-                                    return true;
                                 }
+                                return true;
                             }
                         case "delcustom":
                             if (cs.hasPermission("aog.del.custom")) {
                                 if (args.length > 1) {
                                     DelCustom.delCustom(args[1], cs);
-                                    return true;
                                 } else {
                                     cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog delcustom <World name>");
-                                    return true;
                                 }
+                                return true;
                             }
                         case "disable":
                             if (cs.hasPermission("aog.disable")) {
                                 if (args.length > 1) {
                                     AddWorld.disable(args[1], cs);
-                                    return true;
                                 } else {
                                     cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog disable <World name>");
-                                    return true;
                                 }
+                                return true;
                             }
                         case "enable":
                             if (cs.hasPermission("aog.enable")) {
                                 if (args.length > 1) {
                                     DelWorld.enable(args[1], cs);
-                                    return true;
                                 } else {
-                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog disable <World name>");
-                                    return true;
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog enable <World name>");
                                 }
+                                return true;
                             }
                         case "info":
                             if (cs.hasPermission("aog.info")) {
@@ -137,13 +133,12 @@ public class MainCommand implements CommandExecutor {
                                 if (args.length > 2) {
                                     if (args[2].matches("^[0-9]+$")) {
                                         RunTests.runTests(Integer.parseInt(args[2]), cs, args[1]);
-                                        return true;
                                     } else {
-                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog worlds [Page #]");
-                                        return true;
+                                        cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Invalid arguments! Do /aog tests <World name> <Number>");
                                     }
+                                    return true;
                                 } else {
-                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog disable <World name>");
+                                    cs.sendMessage(ChatColor.GREEN + "AdvancedOreGenerator " + ChatColor.DARK_GRAY + "» " + ChatColor.GRAY + "Not enough arguments! Do /aog tests <World name> <Number>");
                                     return true;
                                 }
                             }
@@ -154,7 +149,7 @@ public class MainCommand implements CommandExecutor {
                                     return true;
                                 }
                             } else if (cs.hasPermission("aog.view.help")) {
-                                cs.sendMessage(HelpMenu.helpNoArgs(cs));
+                                cs.sendMessage(HelpMenu.help(cs, 1));
                                 return true;
                             }
 
